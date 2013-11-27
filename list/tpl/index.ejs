@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="/bower/bower_components/jquery/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/main.css" />
+</head>
+<body>
+<button class="remove">Удалить</button>
+	<h1>The List</h1>
+	<block></block>
+	<form name="formm">
+		<input class="input" placeholder="What do you wish?.." />
+		<button type="submit" class="submit">Submit</button>
+	</form>
+	
+	<script>
+		$('.submit').on('click', function() {
+			var $value = $('.input').val();
+			if ($value) {
+				if (confirm('Добавить строку?')) {
+					$value = $('.input').val();
+					var content = 	'<div class="string">' +
+										'<input class="b-check" type="checkbox">' +
+											'<span class="value">' + $value + '</span>' +
+										'</input>' +
+										'<button class="remove">Удалить</button>' +
+									'</div>';
+					$(content).insertAfter('h1');
+					$('.input').val('');
+				}
+			} else {
+				alert('Пустая строка');
+			};
+		});
+		
+		$('.remove').click(function() {
+			alert('123');
+		
+		});
+		
+		$(document.forms['formm']).on('submit', function() {
+			$.ajax({
+				url: '/',
+				method: 'POST',
+				data: form.serialize(),
+				complete: function() {
+				}
+			});
+		});
+		
+	</script>
+	
+</body>
+
