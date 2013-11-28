@@ -21,7 +21,7 @@ app.set('view engine', 'ejs');
 
 app.use(express.bodyParser());
 
-
+// 123
 var listSchema = new Schema({
 	text: { type: String, required: true },
 	date: { type: Date, default: Date.now },
